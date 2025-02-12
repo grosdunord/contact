@@ -11,21 +11,12 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            position: relative;
         }
         .header {
-            background: url('https://scontent-cdg4-3.xx.fbcdn.net/v/t39.30808-6/345641969_1331875150703294_4974464310884451955_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=4iFJ-AYA6kEQ7kNvgFTez5h&_nc_oc=AdglI-c1J45nHp9hNDRDcKaR_7Uv39s0Kbj5pF9smU_0XjQY-3wvx9Gvyyfo-UAxYGj2FlZURoxq7_zjoTvnRuUW&_nc_zt=23&_nc_ht=scontent-cdg4-3.xx&_nc_gid=A7v_lv2jtL20EJyUIgtE6jB&oh=00_AYCwCewrQyNZDkUQQmjkEWPTqxV3EVIYnobKqem_pWAvYA&oe=67B26F09') no-repeat center center;
+            background: url('https://scontent-cdg4-3.xx.fbcdn.net/v/t39.30808-6/345641969_1331875150703294_4974464310884451955_n.jpg?_nc_cat=106') no-repeat center center;
             background-size: cover;
             height: 200px;
             position: relative;
-        }
-        .qr-icon {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
         }
         .profile-pic {
             width: 100px;
@@ -48,57 +39,81 @@
             margin: auto;
             margin-top: 5px;
         }
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
+        .name {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 5px 0;
         }
-        .qr-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+        .title, .company {
+            font-size: 16px;
+            color: gray;
         }
-        .close {
-            float: right;
-            font-size: 18px;
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
             cursor: pointer;
-            color: red;
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: gray;
+        }
+        .qrcode {
+            margin-top: 20px;
+        }
+        .qrcode img {
+            width: 150px;
+            height: 150px;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <img src="https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/qr-code.png" class="qr-icon" onclick="openQR()">
-    </div>
-    <img src="https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/342861002_1684347408665397_3528784032709932408_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=hd3lfWqtMDsQ7kNvgFFSTSm&_nc_oc=AdioCxGgw4G5aHSFCLW6viC0QOTgwDgkaUGi1VDQ-s0af3l41Bdtmt4YvYhFc0JfO6h-UZPQ7V1phiwbQjrPr0SK&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=A_KM86RACiTjhM4bzj5Viv8&oh=00_AYBHn30uT_GcGBM8RvTlnC4hgEHYlg1KqE8RIXKU4j_yMg&oe=67B27124" alt="Photo de profil" class="profile-pic">
-    <div class="container">
-        <div class="name">Garvés Sébastien</div>
-        <div class="title">PhotographeGS</div>
-        <div class="company">Dunkerque & Grande-Synthe</div>
-    </div>
-    
-    <div class="overlay" id="qrOverlay">
-        <div class="qr-container">
-            <span class="close" onclick="closeQR()">✖</span>
-            <img src="https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/qr-code.png" alt="QR Code">
-        </div>
+
+<div class="header"></div>
+<img src="https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/342861002_1684347408665397_3528784032709932408_n.jpg" alt="Photo de profil" class="profile-pic">
+
+<div class="container">
+    <div class="name">Garvés Sébastien</div>
+    <div class="title">PhotographeGS</div>
+    <div class="company">Dunkerque & Grande-Synthe</div>
+
+    <a href="https://vcard.link/card/IDQP.vcf" class="button">📇 Fiche contact</a>
+    <button class="button" onclick="openForm()">🔄 Échanger</button>
+
+    <div class="social-icons">
+        <a href="https://www.facebook.com/photographeGS" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
+        <a href="https://instagram.com/photographeGS" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"></a>
+        <a href="https://tiktok.com/@photographeGS" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"></a>
+        <a href="https://youtube.com/photographeGS" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a>
     </div>
 
-    <script>
-        function openQR() {
-            document.getElementById("qrOverlay").style.display = "flex";
-        }
-        function closeQR() {
-            document.getElementById("qrOverlay").style.display = "none";
-        }
-    </script>
+    <div class="qrcode">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://vcard.link/card/IDQP.vcf" alt="QR Code Contact">
+    </div>
+
+    <div class="footer">
+        <a href="https://ton-site.com">🌐 Site web</a>
+    </div>
+</div>
+
+<script>
+    function openForm() {
+        alert("Ouverture du formulaire d'échange (à implémenter)");
+    }
+</script>
+
 </body>
 </html>

@@ -126,6 +126,18 @@
             cursor: pointer;
             color: red;
         }
+                .qr-image {
+            width: 200px;
+            height: 200px;
+        }
+        .qr-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -133,7 +145,21 @@
 <div class="header"></div>
 
 <img src="https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/342861002_1684347408665397_3528784032709932408_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=hd3lfWqtMDsQ7kNvgFFSTSm&_nc_oc=AdioCxGgw4G5aHSFCLW6viC0QOTgwDgkaUGi1VDQ-s0af3l41Bdtmt4YvYhFc0JfO6h-UZPQ7V1phiwbQjrPr0SK&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=A_KM86RACiTjhM4bzj5Viv8&oh=00_AYBHn30uT_GcGBM8RvTlnC4hgEHYlg1KqE8RIXKU4j_yMg&oe=67B27124" alt="Photo de profil" class="profile-pic">
+<div class="overlay" id="qrOverlay">
+        <div class="qr-container">
+            <span class="close" onclick="closeQR()">✖</span>
+            <img src="https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/qr-code.png" class="qr-image">
+        </div>
+    </div>
 
+    <script>
+        function openQR() {
+            document.getElementById("qrOverlay").style.display = "flex";
+        }
+        function closeQR() {
+            document.getElementById("qrOverlay").style.display = "none";
+        }
+    </script>
 <div class="container">
     <div class="name">Garvés Sébastien</div>
     <div class="title">PhotographeGS</div>

@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            position: relative;
         }
         .header {
             background: url('https://scontent-cdg4-3.xx.fbcdn.net/v/t39.30808-6/345641969_1331875150703294_4974464310884451955_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=4iFJ-AYA6kEQ7kNvgFTez5h&_nc_oc=AdglI-c1J45nHp9hNDRDcKaR_7Uv39s0Kbj5pF9smU_0XjQY-3wvx9Gvyyfo-UAxYGj2FlZURoxq7_zjoTvnRuUW&_nc_zt=23&_nc_ht=scontent-cdg4-3.xx&_nc_gid=A7v_lv2jtL20EJyUIgtE6jB&oh=00_AYCwCewrQyNZDkUQQmjkEWPTqxV3EVIYnobKqem_pWAvYA&oe=67B26F09') no-repeat center center;
@@ -18,18 +19,25 @@
             height: 200px;
             position: relative;
         }
+        .qr-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
         .profile-pic {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 3px solid white;
-    position: absolute;
-    top: 150px; /* Ajuste la position selon la hauteur du header */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-}
-
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid white;
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+        }
         .container {
             text-align: center;
             background: white;
@@ -40,49 +48,6 @@
             margin: auto;
             margin-top: 5px;
         }
-        .name {
-            font-size: 22px;
-            font-weight: bold;
-            margin: 5px 0;
-        }
-        .title {
-            font-size: 16px;
-            color: gray;
-        }
-        .company {
-            font-size: 14px;
-            color: gray;
-            margin-bottom: 15px;
-        }
-        .button {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .social-icons {
-            margin-top: 20px;
-        }
-        .social-icons a {
-            margin: 0 10px;
-            display: inline-block;
-        }
-        .social-icons img {
-            width: 30px;
-            height: 30px;
-        }
-        .footer {
-            margin-top: 20px;
-            font-size: 14px;
-            color: gray;
-        }
-
-        /* Style du formulaire caché */
         .overlay {
             display: none;
             position: fixed;
@@ -94,32 +59,12 @@
             justify-content: center;
             align-items: center;
         }
-        .form-container {
+        .qr-container {
             background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 400px;
-            text-align: left;
-        }
-        .form-container input,
-        .form-container textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .form-container button {
-            width: 100%;
-            padding: 10px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
+            text-align: center;
         }
         .close {
             float: right;
@@ -130,54 +75,30 @@
     </style>
 </head>
 <body>
-
-<div class="header"></div>
-
-<img src="https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/342861002_1684347408665397_3528784032709932408_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=hd3lfWqtMDsQ7kNvgFFSTSm&_nc_oc=AdioCxGgw4G5aHSFCLW6viC0QOTgwDgkaUGi1VDQ-s0af3l41Bdtmt4YvYhFc0JfO6h-UZPQ7V1phiwbQjrPr0SK&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=A_KM86RACiTjhM4bzj5Viv8&oh=00_AYBHn30uT_GcGBM8RvTlnC4hgEHYlg1KqE8RIXKU4j_yMg&oe=67B27124" alt="Photo de profil" class="profile-pic">
-
-<div class="container">
-    <div class="name">Garvés Sébastien</div>
-    <div class="title">PhotographeGS</div>
-    <div class="company">Dunkerque & Grande-Synthe</div>
-
-    <a href="https://vcard.link/card/IDQP.vcf" class="button">📇 Fiche contact</a>
-    <button class="button" onclick="openForm()">🔄 Échanger</button>
-
-    <div class="social-icons">
-        <a href="https://www.facebook.com/photographeGS" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
-        <a href="https://instagram.com/photographeGS" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"></a>
-        <a href="https://tiktok.com/@photographeGS" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"></a>
-        <a href="https://youtube.com/photographeGS" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a>
+    <div class="header">
+        <img src="https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/qr-code.png" class="qr-icon" onclick="openQR()">
+    </div>
+    <img src="https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-6/342861002_1684347408665397_3528784032709932408_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=hd3lfWqtMDsQ7kNvgFFSTSm&_nc_oc=AdioCxGgw4G5aHSFCLW6viC0QOTgwDgkaUGi1VDQ-s0af3l41Bdtmt4YvYhFc0JfO6h-UZPQ7V1phiwbQjrPr0SK&_nc_zt=23&_nc_ht=scontent-cdg4-2.xx&_nc_gid=A_KM86RACiTjhM4bzj5Viv8&oh=00_AYBHn30uT_GcGBM8RvTlnC4hgEHYlg1KqE8RIXKU4j_yMg&oe=67B27124" alt="Photo de profil" class="profile-pic">
+    <div class="container">
+        <div class="name">Garvés Sébastien</div>
+        <div class="title">PhotographeGS</div>
+        <div class="company">Dunkerque & Grande-Synthe</div>
+    </div>
+    
+    <div class="overlay" id="qrOverlay">
+        <div class="qr-container">
+            <span class="close" onclick="closeQR()">✖</span>
+            <img src="https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/qr-code.png" alt="QR Code">
+        </div>
     </div>
 
-    <div class="footer">
-        <a href="https://ton-site.com">🌐 Site web</a>
-    </div>
-</div>
-
-<!-- Formulaire de contact -->
-<div class="overlay" id="contactForm">
-    <div class="form-container">
-        <span class="close" onclick="closeForm()">✖</span>
-        <h2>Échanger avec moi</h2>
-        <form action="https://formspree.io/f/mpwqjlyy" method="POST">
-            <input type="text" name="name" placeholder="Votre nom" required>
-            <input type="email" name="email" placeholder="Votre email" required>
-            <textarea name="message" rows="4" placeholder="Votre message" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    function openForm() {
-        document.getElementById("contactForm").style.display = "flex";
-    }
-
-    function closeForm() {
-        document.getElementById("contactForm").style.display = "none";
-    }
-</script>
-
+    <script>
+        function openQR() {
+            document.getElementById("qrOverlay").style.display = "flex";
+        }
+        function closeQR() {
+            document.getElementById("qrOverlay").style.display = "none";
+        }
+    </script>
 </body>
 </html>

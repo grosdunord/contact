@@ -224,9 +224,9 @@
     <div class="company">Dunkerque & Grande-Synthe</div>
 
 <div class="button-container">
-    <button class="button contact" onclick="downloadVcf()">
+    <a href="https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/contact.vcf" class="button contact" download>
         <i class="fas fa-address-book"></i> contact
-    </button>
+    </a>
     <button class="button exchange" onclick="openForm()">
         <i class="fas fa-exchange-alt"></i> Échanger
     </button>
@@ -271,16 +271,6 @@
     function showQR() { document.getElementById("qrModal").style.display = "flex"; }
     function closeQR() { document.getElementById("qrModal").style.display = "none"; }
 </script>
-<script>
-function downloadVcf() {
-    const url = 'https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/contact.vcf';
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'contact.vcf'; // Nom du fichier à télécharger
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-</script>
+
 </body>
 </html>

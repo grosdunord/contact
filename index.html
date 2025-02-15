@@ -271,7 +271,7 @@
     function showQR() { document.getElementById("qrModal").style.display = "flex"; }
     function closeQR() { document.getElementById("qrModal").style.display = "none"; }
 </script>
-    <script>
+<script>
     function generateVCF() {
         const vcard = `BEGIN:VCARD
 VERSION:3.0
@@ -287,12 +287,12 @@ PHOTO;VALUE=URI:https://raw.githubusercontent.com/grosdunord/contact/refs/heads/
 END:VCARD`;
 
         const blob = new Blob([vcard], { type: 'text/vcard' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'contact.vcf';  // Le nom du fichier à télécharger
-        a.click();
-        URL.revokeObjectURL(url);
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'contact.vcf';  // Le nom du fichier à télécharger
+        document.body.appendChild(link); // Ajout temporaire du lien au DOM
+        link.click();  // Simule un clic sur le lien pour télécharger
+        document.body.removeChild(link); // Retire le lien du DOM après le téléchargement
     }
 </script>
 </body>

@@ -224,9 +224,9 @@
     <div class="company">Dunkerque & Grande-Synthe</div>
     
 <div class="button-container">
-    <a href="https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/contact.vcf" class="button contact" download>
-        <i class="fas fa-address-book"></i> contact
-    </a>
+ <button class="button contact" onclick="generateVCF()">
+    <i class="fas fa-address-book"></i> contact
+</button>
     <button class="button exchange" onclick="openForm()">
         <i class="fas fa-exchange-alt"></i> Échanger
     </button>
@@ -270,6 +270,30 @@
     function closeForm() { document.getElementById("contactForm").style.display = "none"; }
     function showQR() { document.getElementById("qrModal").style.display = "flex"; }
     function closeQR() { document.getElementById("qrModal").style.display = "none"; }
+</script>
+    <script>
+    function generateVCF() {
+        const vcard = `BEGIN:VCARD
+VERSION:3.0
+REV:2025-02-12T00:00:00Z
+N:Sébastien;Garvés;;photographeGS;
+BDAY:1978-09-18
+ORG:photographegs
+TITLE:Directeur
+TEL;CELL:-33628732546
+EMAIL;INTERNET;WORK:contact@photographegs.fr
+ADR;WORK:photographegs;;13,rue des Oyats;Grande-Synthe;Haut de France;59760;
+PHOTO;VALUE=URI:https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/300823499_607863290874213_2215682231838775758_n.jpg
+END:VCARD`;
+
+        const blob = new Blob([vcard], { type: 'text/vcard' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'contact.vcf';  // Le nom du fichier à télécharger
+        a.click();
+        URL.revokeObjectURL(url);
+    }
 </script>
 </body>
 </html>

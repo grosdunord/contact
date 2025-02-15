@@ -222,11 +222,11 @@
     <div class="name">Garvés Sébastien</div>
     <div class="title">PhotographeGS</div>
     <div class="company">Dunkerque & Grande-Synthe</div>
-
+    
 <div class="button-container">
-    <button class="button contact" onclick="downloadVcf()">
+    <a href="https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/contact.vcf" class="button contact" download>
         <i class="fas fa-address-book"></i> contact
-    </button>
+    </a>
     <button class="button exchange" onclick="openForm()">
         <i class="fas fa-exchange-alt"></i> Échanger
     </button>
@@ -270,23 +270,6 @@
     function closeForm() { document.getElementById("contactForm").style.display = "none"; }
     function showQR() { document.getElementById("qrModal").style.display = "flex"; }
     function closeQR() { document.getElementById("qrModal").style.display = "none"; }
-</script>
-    <script>
-function downloadVcf() {
-    const url = 'https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/contact.vcf'; // Changez cela pour le lien vers votre fichier vCard sur votre serveur
-    
-    fetch(url)
-        .then(response => response.blob())
-        .then(blob => {
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'contact.vcf'; // Le nom du fichier à télécharger
-            link.click();
-        })
-        .catch(error => {
-            console.error('Erreur de téléchargement :', error);
-        });
-}
 </script>
 </body>
 </html>

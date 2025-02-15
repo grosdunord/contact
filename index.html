@@ -271,24 +271,21 @@
     function showQR() { document.getElementById("qrModal").style.display = "flex"; }
     function closeQR() { document.getElementById("qrModal").style.display = "none"; }
 </script>
-<script>
+    <script>
 function downloadVcf() {
-    const url = 'https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/contact.vcf';
+    const url = 'https://raw.githubusercontent.com/grosdunord/contact/refs/heads/main/contact.vcf'; // Changez cela pour le lien vers votre fichier vCard sur votre serveur
     
-    // Créer un objet XMLHttpRequest pour récupérer le fichier
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.responseType = "blob";
-    
-    xhr.onload = function() {
-        const blob = xhr.response;
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = 'contact.vcf'; // Nom du fichier téléchargé
-        link.click();
-    };
-    
-    xhr.send();
+    fetch(url)
+        .then(response => response.blob())
+        .then(blob => {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'contact.vcf'; // Le nom du fichier à télécharger
+            link.click();
+        })
+        .catch(error => {
+            console.error('Erreur de téléchargement :', error);
+        });
 }
 </script>
 </body>

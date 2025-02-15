@@ -55,16 +55,45 @@
             color: gray;
             margin-bottom: 15px;
         }
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+
         .button {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             font-size: 16px;
+            font-weight: bold;
+            padding: 12px 20px;
+            border-radius: 20px; /* Augmenté pour plus de courbes */
+            border: none;
             cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact:hover {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .exchange {
+            background: #e5e7eb;
+            color: black;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .exchange:hover {
+            background: #d1d5db;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
         }
 
         .social-buttons {
@@ -175,11 +204,6 @@
             cursor: pointer;
             color: red;
         }
-        /* Couleurs des icônes */
-        .facebook { color: #1877F2; }  /* Bleu Facebook */
-        .tiktok { color: #33313a; }  /* Vert WhatsApp */
-        .google { color: #FF0000; }   /* Rouge YouTube */
-        .instagram { color: #E1306C; } /* Rose Instagram */
     </style>
 </head>
 <body>
@@ -197,8 +221,14 @@
     <div class="title">PhotographeGS</div>
     <div class="company">Dunkerque & Grande-Synthe</div>
 
-    <a href="https://vcard.link/card/IDQP.vcf" class="button">📇 Fiche contact</a>
-    <button class="button" onclick="openForm()">🔄 Échanger</button>
+    <div class="button-container">
+        <a href="https://vcard.link/card/IDQP.vcf" class="button contact">
+            <i class="fas fa-address-book"></i> Fiche contact
+        </a>
+        <button class="button exchange" onclick="openForm()">
+            <i class="fas fa-exchange-alt"></i> Échanger
+        </button>
+    </div>
 
     <div class="social-buttons">
         <a href="https://www.facebook.com/photographeGS" class="button facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -206,7 +236,7 @@
         <a href="https://www.instagram.com/photographegs?igsh=MW82c3FscjFoZ2h1MQ==" class="button instagram"><i class="fa-brands fa-instagram"></i></a>
     </div>
 
-<div class="footer">
+    <div class="footer">
         <a href="https://g.page/r/CX2zpvRYChRZEBI/review">Laisse ton avis</a>
     </div>
 </div>
